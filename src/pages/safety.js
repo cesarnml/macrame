@@ -3,6 +3,8 @@ import Helmet from 'react-helmet'
 import config from 'utils/siteConfig'
 import Layout from 'components/Layout'
 import Container from 'components/Container'
+import PageTitle from 'components/PageTitle'
+
 import PropTypes from 'prop-types'
 
 const Safety = props => {
@@ -12,7 +14,9 @@ const Safety = props => {
         <title>{`Safety - ${config.siteTitle}`}</title>
       </Helmet>
 
-      <Container>Safety</Container>
+      <Container>
+        <PageTitle>Safety</PageTitle>
+      </Container>
     </Layout>
   )
 }

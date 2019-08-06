@@ -5,7 +5,6 @@ export const makeId = length => {
   const charactersLength = characters.length
   for (let i = 0; i < length; i++) {
     result += characters.charAt(Math.floor(Math.random() * charactersLength))
-    console.log('characters:', characters)
   }
   return result
 }
