@@ -1,3 +1,4 @@
+require('dotenv').config()
 import React, { useState, useEffect } from 'react'
 import Helmet from 'react-helmet'
 import styled from 'styled-components'
@@ -29,10 +30,12 @@ const Write = props => {
     e.preventDefault()
     const entryId = makeId(64)
     const client = contentful.createClient({
-      accessToken: process.env.CONTENTFUL_MANAGEMENT_API_KEY,
+      // accessToken: process.env.CONTENTFUL_MANAGEMENT_API_KEY,
+      accessToken: 'CFPAT-fr8v3vLxHcp9QlxNmT1PAQlDHl8IYYqggPAMXJdC3cI',
     })
 
-    const space = await client.getSpace(process.env.CONTENTFUL_SPACE_ID)
+    // const space = await client.getSpace(process.env.CONTENTFUL_SPACE_ID)
+    const space = await client.getSpace('7mqmdpaeqe84')
     const environment = await space.getEnvironment('master')
     const asset = await environment.createAssetFromFiles({
       fields: {
