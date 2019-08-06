@@ -55,13 +55,13 @@ const Write = props => {
           'en-US': story.title,
         },
         slug: {
-          'en-US': slugify(`${story.title} ${makeId(8)}`)
+          'en-US': slugify(`${story.title} ${makeId(8)}`),
         },
         body: {
           'en-US': story.body,
         },
         publishDate: {
-          'en-US': Date.now(),
+          'en-US': new Date(),
         },
         heroImage: {
           'en-US': {
