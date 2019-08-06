@@ -22,13 +22,18 @@ const Write = props => {
 
   const handleFormSubmit = async e => {
     e.preventDefault()
+    console.log(
+      'ENV',
+      process.env.GATSBY_CONTENTFUL_MANAGEMENT_API_KEY,
+      process.env.GATSBY_CONTENTFUL_SPACE_ID
+    )
     const entryId = makeId(64)
     const authorId = makeId(64)
     const client = contentful.createClient({
-      accessToken: process.env.CONTENTFUL_MANAGEMENT_API_KEY,
+      accessToken: process.env.GATSBY_CONTENTFUL_MANAGEMENT_API_KEY,
     })
 
-    const space = await client.getSpace(process.env.CONTENTFUL_SPACE_ID)
+    const space = await client.getSpace(process.env.GATSBY_CONTENTFUL_SPACE_ID)
     const environment = await space.getEnvironment('master')
     const asset = await environment.createAssetFromFiles({
       fields: {
@@ -127,7 +132,9 @@ const Write = props => {
             onChange={handleFileChange}
             placeholder='Cover Image'
           />
-          <img src={story.fileSrc} alt='' />
+          <div style={{ height: 100, width: 100 }}>
+            <img src={story.fileSrc} alt='' />
+          </div>
           <input
             type='text'
             name='author'
@@ -137,10 +144,10 @@ const Write = props => {
           />
           <input
             type='text'
-            name='country (optional'
+            name='country'
             value={story.country}
             onChange={handleInputChange}
-            placeholder='Country'
+            placeholder='Country (optional)'
           />
           <input
             required
@@ -172,9 +179,16 @@ const Form = styled.form`
       border-bottom: 1px solid ${props => props.theme.colors.secondary};
     }
   }
+  img {
+    object-fit: cover;
+    object-position: center;
+  }
   button {
     font-weight: bold;
     border: 1px solid ${props => props.theme.colors.secondary};
+    cursor: pointer;
+    width: 100px;
+    height: 50px;
   }
 `
 export default Write
