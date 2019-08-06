@@ -56,6 +56,8 @@ export const query = graphql`
           title
           id
           slug
+          author
+          country
           publishDate(formatString: "MMMM DD, YYYY")
           heroImage {
             title
