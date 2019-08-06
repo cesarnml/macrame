@@ -1,4 +1,5 @@
 const config = require('./src/utils/siteConfig')
+const path = require('path')
 let contentfulConfig
 
 try {
@@ -31,6 +32,18 @@ module.exports = {
     },
   },
   plugins: [
+    {
+      resolve: 'gatsby-plugin-root-import',
+      options: {
+        src: path.join(__dirname, 'src'),
+        components: path.join(__dirname, 'src/components'),
+        pages: path.join(__dirname, 'src/pages'),
+        styles: path.join(__dirname, 'src/styles'),
+        templates: path.join(__dirname, 'src/templates'),
+        utils: path.join(__dirname, 'src/utils'),
+        images: path.join(__dirname, 'src/images'),
+      },
+    },
     {
       resolve: 'gatsby-plugin-html-attributes',
       options: {

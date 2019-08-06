@@ -3,7 +3,7 @@ import { Link } from 'gatsby'
 import styled from 'styled-components'
 
 const Header = styled.header`
-  background: ${props => props.theme.colors.base};
+  background: ${props => props.theme.colors.bg};
   width: 100%;
   padding: 1.5em 0;
 `
@@ -29,20 +29,19 @@ const Nav = styled.nav`
   }
 
   a {
+    font-size: 0.875rem;
     text-decoration: none;
-    color: DarkGray;
+    color: ${props => props.theme.colors.primary};
     font-weight: 600;
     transition: all 0.2s;
-    border-bottom: 2px solid ${props => props.theme.colors.base};
     &:hover {
-      color: white;
+      color: ${props => props.theme.colors.secondary};
     }
   }
+  .active {
+    color: ${props => props.theme.colors.highlight};
+  }
 `
-
-const activeLinkStyle = {
-  color: 'white',
-}
 
 const Menu = () => {
   return (
@@ -50,17 +49,27 @@ const Menu = () => {
       <Nav>
         <ul>
           <li>
-            <Link to="/" activeStyle={activeLinkStyle}>
+            <Link to='/' activeClassName='active'>
               Home
             </Link>
           </li>
           <li>
-            <Link to="/about/" activeStyle={activeLinkStyle}>
+            <Link to='/write/' activeClassName='active'>
+              Write
+            </Link>
+          </li>
+          <li>
+            <Link to='/about/' activeClassName='active'>
               About
             </Link>
           </li>
           <li>
-            <Link to="/contact/" activeStyle={activeLinkStyle}>
+            <Link to='/safety/' activeClassName='active'>
+              Safety
+            </Link>
+          </li>
+          <li>
+            <Link to='/contact/' activeClassName='active'>
               Contact
             </Link>
           </li>
