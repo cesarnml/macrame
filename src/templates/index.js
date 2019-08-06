@@ -1,13 +1,13 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import Layout from '../components/Layout'
-import CardList from '../components/CardList'
-import Card from '../components/Card'
+import Layout from 'components/Layout'
+import CardList from 'components/CardList'
+import Card from 'components/Card'
 import Helmet from 'react-helmet'
-import Container from '../components/Container'
-import Pagination from '../components/Pagination'
-import SEO from '../components/SEO'
-import config from '../utils/siteConfig'
+import Container from 'components/Container'
+import Pagination from 'components/Pagination'
+import SEO from 'components/SEO'
+import config from 'utils/siteConfig'
 
 const Index = ({ data, pageContext }) => {
   const posts = data.allContentfulPost.edges

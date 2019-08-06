@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import Helmet from 'react-helmet'
 import styled from 'styled-components'
-import config from '../utils/siteConfig'
-import Layout from '../components/Layout'
-import Container from '../components/Container'
+import config from 'utils/siteConfig'
+import Layout from 'components/Layout'
+import Container from 'components/Container'
 import PropTypes from 'prop-types'
-import { makeId } from '../utils/index.js'
+import { makeId } from 'utils/index.js'
 
 const Write = props => {
   const [story, setStory] = useState({

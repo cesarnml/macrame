@@ -3,13 +3,13 @@ import { graphql } from 'gatsby'
 import orderBy from 'lodash/orderBy'
 import Helmet from 'react-helmet'
 import moment from 'moment'
-import config from '../utils/siteConfig'
-import Layout from '../components/Layout'
-import Card from '../components/Card'
-import CardList from '../components/CardList'
-import PageTitle from '../components/PageTitle'
-import Pagination from '../components/Pagination'
-import Container from '../components/Container'
+import config from 'utils/siteConfig'
+import Layout from 'components/Layout'
+import Card from 'components/Card'
+import CardList from 'components/CardList'
+import PageTitle from 'components/PageTitle'
+import Pagination from 'components/Pagination'
+import Container from 'components/Container'
 
 const TagTemplate = ({ data, pageContext }) => {
   const posts = orderBy(
@@ -32,19 +32,19 @@ const TagTemplate = ({ data, pageContext }) => {
         <Helmet>
           <title>{`Tag: ${title} - ${config.siteTitle}`}</title>
           <meta
-            property="og:title"
+            property='og:title'
             content={`Tag: ${title} - ${config.siteTitle}`}
           />
-          <meta property="og:url" content={`${config.siteUrl}/tag/${slug}/`} />
+          <meta property='og:url' content={`${config.siteUrl}/tag/${slug}/`} />
         </Helmet>
       ) : (
         <Helmet>
           <title>{`Tag: ${title} - Page ${currentPage} - ${config.siteTitle}`}</title>
           <meta
-            property="og:title"
+            property='og:title'
             content={`Tag: ${title} - Page ${currentPage} - ${config.siteTitle}`}
           />
-          <meta property="og:url" content={`${config.siteUrl}/tag/${slug}/`} />
+          <meta property='og:url' content={`${config.siteUrl}/tag/${slug}/`} />
         </Helmet>
       )}
 
