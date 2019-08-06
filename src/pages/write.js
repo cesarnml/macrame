@@ -1,3 +1,4 @@
+requite('dotenv').config()
 import React, { useState, useEffect } from 'react'
 import Helmet from 'react-helmet'
 import styled from 'styled-components'
@@ -10,6 +11,11 @@ import slugify from 'slugify'
 const contentful = require('contentful-management')
 
 const Write = props => {
+  console.log(
+    'ENV',
+    process.env.CONTENTFUL_SPACE_ID,
+    process.env.CONTENTFUL_MANAGEMENT_API_KEY
+  )
   const [story, setStory] = useState({
     title: '',
     author: '',
