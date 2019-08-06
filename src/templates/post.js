@@ -12,14 +12,7 @@ import PostDetails from 'components/PostDetails'
 import SEO from 'components/SEO'
 
 const PostTemplate = ({ data, pageContext }) => {
-  const {
-    title,
-    slug,
-    heroImage,
-    body,
-    publishDate,
-    tags,
-  } = data.contentfulPost
+  const { title, slug, heroImage, body, publishDate } = data.contentfulPost
   const postNode = data.contentfulPost
 
   const previous = pageContext.prev
@@ -35,7 +28,7 @@ const PostTemplate = ({ data, pageContext }) => {
       <Hero title={title} image={heroImage} height={'50vh'} />
 
       <Container>
-        {tags && <TagList tags={tags} />}
+        {/* {tags && <TagList tags={tags} />} */}
         <PostDetails
           date={publishDate}
           timeToRead={body.childMarkdownRemark.timeToRead}
@@ -59,11 +52,6 @@ export const query = graphql`
       }
       publishDate(formatString: "MMMM DD, YYYY")
       publishDateISO: publishDate(formatString: "YYYY-MM-DD")
-      tags {
-        title
-        id
-        slug
-      }
       heroImage {
         title
         fluid(maxWidth: 1800) {

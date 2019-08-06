@@ -46,32 +46,24 @@ const Footer = () => (
     <List>
       <Item>
         <a
-          href="https://www.contentful.com/"
-          rel="nofollow noopener noreferrer"
-          target="_blank"
+          href='https://www.contentful.com/'
+          rel='nofollow noopener noreferrer'
+          target='_blank'
         >
           <img
-            src="https://images.ctfassets.net/fo9twyrwpveg/44baP9Gtm8qE2Umm8CQwQk/c43325463d1cb5db2ef97fca0788ea55/PoweredByContentful_LightBackground.svg"
+            src='https://images.ctfassets.net/fo9twyrwpveg/44baP9Gtm8qE2Umm8CQwQk/c43325463d1cb5db2ef97fca0788ea55/PoweredByContentful_LightBackground.svg'
             style={{ width: '100px' }}
-            alt="Powered by Contentful"
+            alt='Powered by Contentful'
           />
         </a>
       </Item>
       <Item>
         <a
-          href="https://github.com/ryanwiemer/gatsby-starter-gcn"
-          target="_blank"
-          rel="noopener noreferrer"
+          href='https://github.com/cesarnml/macrame'
+          target='_blank'
+          rel='noopener noreferrer'
         >
-          gatsby-starter-gcn
-        </a>{' '}
-        by{' '}
-        <a
-          href="https://github.com/ryanwiemer"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          @ryanwiemer
+          Copyright 2019 Macramé
         </a>
       </Item>
     </List>

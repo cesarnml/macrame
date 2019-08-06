@@ -10,11 +10,6 @@ import slugify from 'slugify'
 const contentful = require('contentful-management')
 
 const Write = props => {
-  console.log(
-    'ENV',
-    process.env.CONTENTFUL_SPACE_ID,
-    process.env.CONTENTFUL_MANAGEMENT_API_KEY
-  )
   const [story, setStory] = useState({
     title: '',
     author: '',
@@ -28,13 +23,12 @@ const Write = props => {
   const handleFormSubmit = async e => {
     e.preventDefault()
     const entryId = makeId(64)
+    const authorId = makeId(64)
     const client = contentful.createClient({
-      accessToken: 'CFPAT-fr8v3vLxHcp9QlxNmT1PAQlDHl8IYYqggPAMXJdC3cI',
+      accessToken: process.env.CONTENTFUL_MANAGEMENT_API_KEY,
     })
-    // accessToken: process.env.CONTENTFUL_MANAGEMENT_API_KEY,
 
-    // const space = await client.getSpace(process.env.CONTENTFUL_SPACE_ID)
-    const space = await client.getSpace('7mqmdpaeqe84')
+    const space = await client.getSpace(process.env.CONTENTFUL_SPACE_ID)
     const environment = await space.getEnvironment('master')
     const asset = await environment.createAssetFromFiles({
       fields: {
@@ -42,7 +36,7 @@ const Write = props => {
           'en-US': story.file.name,
         },
         description: {
-          'en-US': 'Asset description',
+          'en-US': 'Asset',
         },
         file: {
           'en-US': {
@@ -67,8 +61,14 @@ const Write = props => {
         body: {
           'en-US': story.body,
         },
+        author: {
+          'en-US': story.author || 'Anonymous',
+        },
         publishDate: {
           'en-US': new Date(),
+        },
+        country: {
+          'en-US': story.country,
         },
         heroImage: {
           'en-US': {
