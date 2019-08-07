@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import * as contentful from 'contentful-management'
 import Helmet from 'react-helmet'
 import styled from 'styled-components'
@@ -10,6 +10,7 @@ import { makeId } from 'utils/index.js'
 import slugify from 'slugify'
 
 const Write = props => {
+  const fileInputRef = useRef()
   const [story, setStory] = useState({
     title: '',
     author: '',
@@ -117,7 +118,10 @@ const Write = props => {
                 Select a Cover Image
               </label>
             ) : (
-              <div className='wrapper-image'>
+              <div
+                className='wrapper-image'
+                onClick={() => fileInputRef.current.click()}
+              >
                 <img src={story.fileSrc} alt='' />
               </div>
             )}
@@ -130,6 +134,7 @@ const Write = props => {
             value={story.coverImage}
             onChange={handleFileChange}
             placeholder='Cover Image'
+            ref={fileInputRef}
           />
           <input
             required
@@ -201,15 +206,16 @@ const Form = styled.form`
     margin-bottom: 3rem;
   }
   .wrapper-image {
+    cursor: pointer;
     height: 200px;
     width: 300px;
     overflow: hidden;
     margin-left: 5rem;
   }
   .file-label {
-    border: 1px solid darkgray;
+    cursor: pointer;
+    border: 1px dotted darkgray;
     color: darkgray;
-    margin-left: 2rem;
     width: 300px;
     height: 200px;
     display: flex;
