@@ -211,7 +211,6 @@ const Form = styled.form`
     height: 200px;
     width: 300px;
     overflow: hidden;
-    margin-left: 5rem;
   }
   .file-label {
     cursor: pointer;
