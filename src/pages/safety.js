@@ -5,8 +5,6 @@ import Layout from 'components/Layout'
 import Container from 'components/Container'
 import PageTitle from 'components/PageTitle'
 
-import PropTypes from 'prop-types'
-
 const Safety = props => {
   return (
     <Layout>

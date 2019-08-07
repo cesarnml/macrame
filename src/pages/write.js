@@ -1,11 +1,10 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useRef } from 'react'
 import * as contentful from 'contentful-management'
 import Helmet from 'react-helmet'
 import styled from 'styled-components'
 import config from 'utils/siteConfig'
 import Layout from 'components/Layout'
 import Container from 'components/Container'
-import PropTypes from 'prop-types'
 import { makeId } from 'utils/index.js'
 import slugify from 'slugify'
 
@@ -49,7 +48,7 @@ const Write = props => {
       },
     })
     const assetProcessed = await asset.processForAllLocales()
-    const assetPublished = await assetProcessed.publish()
+    await assetProcessed.publish()
 
     const entry = await environment.createEntryWithId('post', entryId, {
       fields: {
@@ -82,7 +81,7 @@ const Write = props => {
         },
       },
     })
-    const entryPublished = await entry.publish()
+    entry.publish()
   }
   const handleInputChange = e => {
     const { name, value } = e.target
@@ -114,7 +113,7 @@ const Write = props => {
         <Form onSubmit={handleFormSubmit}>
           <div className='wrapper-file-input'>
             {!story.fileSrc ? (
-              <label for='file-input' class='file-label'>
+              <label htmlFor='file-input' className='file-label'>
                 Select a Cover Image
               </label>
             ) : (
@@ -128,7 +127,7 @@ const Write = props => {
           </div>
           <input
             id='file-input'
-            class='file-input'
+            className='file-input'
             type='file'
             name='coverImage'
             value={story.coverImage}
