@@ -199,6 +199,7 @@ const Form = styled.form`
     cursor: pointer;
     width: 100px;
     height: 50px;
+    margin-left: 1.5rem;
   }
   .wrapper-file-input {
     display: flex;
