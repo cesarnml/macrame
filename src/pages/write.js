@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import * as contentful from 'contentful-management'
 import Helmet from 'react-helmet'
 import styled from 'styled-components'
 import config from 'utils/siteConfig'
@@ -7,7 +8,6 @@ import Container from 'components/Container'
 import PropTypes from 'prop-types'
 import { makeId } from 'utils/index.js'
 import slugify from 'slugify'
-const contentful = require('contentful-management')
 
 const Write = props => {
   const [story, setStory] = useState({
@@ -22,19 +22,14 @@ const Write = props => {
 
   const handleFormSubmit = async e => {
     e.preventDefault()
-    console.log(
-      'ENV',
-      process.env.GATSBY_CONTENTFUL_MANAGEMENT_API_KEY,
-      process.env.GATSBY_CONTENTFUL_SPACE_ID
-    )
     const entryId = makeId(64)
-    const authorId = makeId(64)
     const client = contentful.createClient({
       accessToken: process.env.GATSBY_CONTENTFUL_MANAGEMENT_API_KEY,
     })
-
     const space = await client.getSpace(process.env.GATSBY_CONTENTFUL_SPACE_ID)
-    const environment = await space.getEnvironment('master')
+    const environment = await space.getEnvironment(
+      process.env.GATSBY_CONTENTFUL_ENVIRONMENT
+    )
     const asset = await environment.createAssetFromFiles({
       fields: {
         title: {
