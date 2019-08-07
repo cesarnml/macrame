@@ -159,13 +159,13 @@ const Write = props => {
             onChange={handleInputChange}
             placeholder='Country (optional)'
           />
-          <input
+          <textarea
             required
             type='text'
             name='body'
             value={story.body}
             onChange={handleInputChange}
-            placeholder='Story'
+            placeholder='Story text ...'
           />
           <button type='submit'>Share</button>
         </Form>
@@ -182,11 +182,23 @@ const Form = styled.form`
   input {
     height: 2rem;
     margin: 0 0 2rem;
-    padding: 0 1.5rem;
+    padding: 1.5rem;
     border-bottom: 1px solid transparent;
     transition: border-bottom 0.3s ease;
     &:focus {
       border-bottom: 1px solid ${props => props.theme.colors.secondary};
+    }
+  }
+  textarea {
+    height: 300px;
+    margin: 0 0 2rem 0.5rem;
+    padding: 1rem 1rem;
+    border: 1px solid transparent;
+    font-size: 1rem;
+    outline: none;
+    resize: none;
+    &:focus {
+      border: 1px dotted ${props => props.theme.colors.secondary};
     }
   }
   img {
@@ -200,6 +212,9 @@ const Form = styled.form`
     width: 100px;
     height: 50px;
     margin-left: 1.5rem;
+    &:focus {
+      outline: 1px solid ${props => props.theme.colors.highlight};
+    }
   }
   .wrapper-file-input {
     display: flex;
@@ -208,15 +223,16 @@ const Form = styled.form`
   }
   .wrapper-image {
     cursor: pointer;
-    height: 200px;
-    width: 300px;
+    height: 250px;
+    max-width: 700px;
+    width: 70%;
     overflow: hidden;
   }
   .file-label {
     cursor: pointer;
     border: 1px dotted darkgray;
     color: darkgray;
-    width: 300px;
+    width: 400px;
     height: 200px;
     display: flex;
     align-items: center;
