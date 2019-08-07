@@ -82,7 +82,6 @@ const Write = props => {
       },
     })
     const entryPublished = await entry.publish()
-    console.log(entry, asset)
   }
   const handleInputChange = e => {
     const { name, value } = e.target
@@ -112,6 +111,26 @@ const Write = props => {
 
       <Container>
         <Form onSubmit={handleFormSubmit}>
+          <div className='wrapper-file-input'>
+            {!story.fileSrc ? (
+              <label for='file-input' class='file-label'>
+                Select a Cover Image
+              </label>
+            ) : (
+              <div className='wrapper-image'>
+                <img src={story.fileSrc} alt='' />
+              </div>
+            )}
+          </div>
+          <input
+            id='file-input'
+            class='file-input'
+            type='file'
+            name='coverImage'
+            value={story.coverImage}
+            onChange={handleFileChange}
+            placeholder='Cover Image'
+          />
           <input
             required
             type='text'
@@ -120,16 +139,7 @@ const Write = props => {
             onChange={handleInputChange}
             placeholder='Title'
           />
-          <input
-            type='file'
-            name='coverImage'
-            value={story.coverImage}
-            onChange={handleFileChange}
-            placeholder='Cover Image'
-          />
-          <div style={{ height: 100, width: 100 }}>
-            <img src={story.fileSrc} alt='' />
-          </div>
+
           <input
             type='text'
             name='author'
@@ -184,6 +194,40 @@ const Form = styled.form`
     cursor: pointer;
     width: 100px;
     height: 50px;
+  }
+  .wrapper-file-input {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3rem;
+  }
+  .wrapper-image {
+    height: 200px;
+    width: 300px;
+    overflow: hidden;
+    margin-left: 5rem;
+  }
+  .file-label {
+    border: 1px solid darkgray;
+    color: darkgray;
+    margin-left: 2rem;
+    width: 300px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    &:hover {
+      border: 1px solid ${props => props.theme.colors.highlight};
+      color: ${props => props.theme.colors.highlight};
+    }
+  }
+  .file-input {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
   }
 `
 export default Write
