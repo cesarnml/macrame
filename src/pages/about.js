@@ -5,46 +5,22 @@ import Layout from 'components/Layout'
 import Container from 'components/Container'
 import PageTitle from 'components/PageTitle'
 import styled from "styled-components";
-import Supporters from "../components/Supporters"
 
 // import PropTypes from 'prop-types'
 
 const Concern = styled.h1`
   font-size: 30px;
 `;
-const StyleOver = styled.div`
 
-  h1 {
-    text-align:left;
-  }
-  
-`;
-
-const FlexContainer = styled.div`
-display:flex;
-
-@media (max-width: 768px) {
-    flex-direction: column;
-    }
-
-  .content {
-    width: 80%;
-    margin-right: 10px;
-  }
-`
-
-const Safety = props => {
+const About = props => {
   return (
     <Layout>
       <Helmet>
-        <title>{`Safety - ${config.siteTitle}`}</title>
+        <title>{`About - ${config.siteTitle}`}</title>
       </Helmet>
-    
+
       <Container>
-        <StyleOver>
-        <PageTitle className="title">Safety</PageTitle>
-        <FlexContainer>
-          <div className = "content">
+        <PageTitle>About</PageTitle>
          <Concern>Please use anonymous names and places.</Concern>
             <p>
               This is up to the writers discression. However, if you believe that information provided here could get someone else hurt or jeopardize their safety please consider either posting it anonymously or not posting it at all.
@@ -61,15 +37,12 @@ const Safety = props => {
             <p>
               While we endevour to share as many stories as possible we cannot publish all stories. Stories that contain strong language or hate speech will not be published.
             </p>
-            </div>
-            <Supporters></Supporters>
-            </FlexContainer>
-            </StyleOver>
+       
       </Container>
     </Layout>
   )
 }
 
-Safety.propTypes = {}
+About.propTypes = {}
 
-export default Safety
+export default About
