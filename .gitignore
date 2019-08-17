@@ -8,3 +8,4 @@ contentful-import-error-log*
 .env.development
 .env.production
 .contentful.json
+.vscode
