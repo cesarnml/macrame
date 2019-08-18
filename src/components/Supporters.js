@@ -6,6 +6,9 @@ const Contributers = styled.div`
   margin-top: 30px;
   margin-left:30px;
   margin-bottom: 20px;
+  @media (max-width: ${props => props.theme.responsive.medium}) {
+    margin-right: 80px;
+    }
 `
 const ContributerList = styled.ul`
   margin-bottom: 40px;
