@@ -29,6 +29,7 @@ const Item = styled.li`
     width: auto;
   }
   a {
+    text-decoration:none;
     font-weight: 600;
     transition: all 0.2s;
     color: ${props => props.theme.colors.base};
@@ -44,7 +45,7 @@ const Item = styled.li`
 const Footer = () => (
   <Wrapper>
     <List>
-      <Item>
+      {/* <Item>
         <a
           href='https://www.contentful.com/'
           rel='nofollow noopener noreferrer'
@@ -56,14 +57,14 @@ const Footer = () => (
             alt='Powered by Contentful'
           />
         </a>
-      </Item>
+      </Item> */}
       <Item>
         <a
           href='https://github.com/cesarnml/macrame'
           target='_blank'
           rel='noopener noreferrer'
         >
-          Copyright 2019 Macramé
+          2019 Macramé <br></br>مقرمة
         </a>
       </Item>
     </List>

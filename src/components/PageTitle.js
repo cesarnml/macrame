@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 const Title = styled.h1`
+  display:flex;
   font-size: ${props => (props.small ? '2em' : '3em')};
   text-transform: capitalize;
   font-weight: 600;
@@ -9,6 +10,12 @@ const Title = styled.h1`
   margin: 0 0 3rem 0;
   margin: ${props => (props.small ? '1rem 0 4rem 0' : '0 0 3rem 0')};
   line-height: 1.2;
+
+
+  @media (max-width: ${props => props.theme.responsive.medium}){
+    display:flex;
+  justify-content:center;
+  }
   span {
     margin: 0 0 0 0.25em;
   }
