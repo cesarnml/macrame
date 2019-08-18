@@ -6,23 +6,26 @@ const Wrapper = styled.div`
   max-width: ${props => props.theme.sizes.maxWidthCentered};
   span {
     margin: 0 0.5rem;
+    color: ${props => props.theme.colors.fourth};
   }
 `
 
 const Date = styled.p`
   display: inline-block;
+  color: ${props => props.theme.colors.fourth};
 `
 
 const ReadingTime = styled.p`
   display: inline-block;
+  color: ${props => props.theme.colors.fourth};
 `
 
 const PostDetails = props => {
   return (
     <Wrapper>
-      <Date>📅 {props.date}</Date>
+      <Date>{props.date}</Date>
       <span>•</span>
-      <ReadingTime>{`⏱️${props.timeToRead} min read `}</ReadingTime>
+      <ReadingTime>{`${props.timeToRead} min read `}</ReadingTime>
     </Wrapper>
   )
 }

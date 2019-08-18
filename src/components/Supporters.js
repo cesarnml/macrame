@@ -6,9 +6,7 @@ const Contributers = styled.div`
   margin-top: 30px;
   margin-left:30px;
   margin-bottom: 20px;
-
-`;
-
+`
 const ContributerList = styled.ul`
   margin-bottom: 40px;
 `;
@@ -21,6 +19,7 @@ const SubMenu = styled.p`
   margin-top: 3px;
   font-size: 1.0rem;
   margin-bottom: 30px;
+  color: ${props => props.theme.colors.fourth};
 `;
 
 const Author = styled.p`

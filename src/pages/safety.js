@@ -23,8 +23,9 @@ const StyleOver = styled.div`
 const FlexContainer = styled.div`
 display:flex;
 
-@media (max-width: 768px) {
+@media (max-width: ${props => props.theme.responsive.medium}) {
     flex-direction: column;
+    align-items:center;
     }
 
   .content {
