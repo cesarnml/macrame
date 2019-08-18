@@ -14,7 +14,7 @@ const ContributerList = styled.ul`
 `;
 
 const Border = styled.div`
-  border-bottom: 1px solid lightgray;
+  border-bottom: 1px solid ${props => props.theme.colors.secondary};
 `;
 
 const SubMenu = styled.p`
@@ -35,6 +35,9 @@ const SocialMedia = styled.div`
   i {
     margin-right: 40px;
     font-size: 40px;
+    :hover{
+      
+    }
   }
   i:first-child {
     margin-left: 50px;
@@ -56,7 +59,7 @@ const Supporters = () => {
     
       </ContributerList>
       <Border />
-      <SubMenu>Contact Us</SubMenu>
+      <SubMenu>Follow</SubMenu>
       <SocialMedia>
         <i className="fab fa-github-square" />
         <i className="fab fa-facebook-square" />
