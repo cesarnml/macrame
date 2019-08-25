@@ -35,6 +35,7 @@ display:flex;
 `
 
 const Safety = props => {
+  console.log(props)
   return (
     <Layout>
       <Helmet>
