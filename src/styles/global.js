@@ -5,8 +5,8 @@ const GlobalStyle = createGlobalStyle`
    v2.0 | 20110126
    License: none (public domain)
   */
-  /* html, body, div, span, applet, object, iframe,
-  , h2, h3, h4, h5, h6, p, blockquote, pre,
+  html, body, div, span, applet, object, iframe,
+  h2, h3, h4, h5, h6, p, blockquote, pre,
   a, abbr, acronym, address, big, cite, code,
   del, dfn, em, img, ins, kbd, q, s, samp,
   small, strike, strong, sub, sup, tt, var,
@@ -24,8 +24,8 @@ const GlobalStyle = createGlobalStyle`
     font-size: 100%;
     /* stylelint-disable-next-line */
     font: inherit;
-    /* vertical-align: baseline;
-  } */ */
+    vertical-align: baseline;
+  } 
 
   /* Added to Fix Footer to bottom of viewport */
   html, body {
