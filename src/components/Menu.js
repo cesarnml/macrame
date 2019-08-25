@@ -79,10 +79,10 @@ const StyledLink = styled(Link)`
     &:hover{
       color: ${props => props.theme.colors.secondary};
     }
-  }
+  
     &:active {
     color: ${props => props.theme.colors.secondary};
-  
+    }
 `
 
 const MainChoice = styled.div`
