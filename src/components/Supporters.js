@@ -1,5 +1,8 @@
 import React from "react";
 import styled from "styled-components";
+import { FaFacebookSquare } from 'react-icons/fa';
+import { FaGithubSquare } from 'react-icons/fa';
+import { FaTwitterSquare } from 'react-icons/fa';
 
 
 const Contributers = styled.div`
@@ -35,14 +38,14 @@ const Author = styled.p`
 const SocialMedia = styled.div`
   display: flex;
 
-  i {
+  svg {
     margin-right: 40px;
     font-size: 40px;
     :hover{
       
     }
   }
-  i:first-child {
+  svg:first-child {
     margin-left: 50px;
   }
   
@@ -64,9 +67,9 @@ const Supporters = () => {
       <Border />
       <SubMenu>Follow</SubMenu>
       <SocialMedia>
-        <i className="fab fa-github-square" />
-        <i className="fab fa-facebook-square" />
-        <i className="fab fa-twitter-square" />
+        <FaFacebookSquare/>
+        <FaGithubSquare/>
+        <FaTwitterSquare />
       </SocialMedia>
     </Contributers>
   );
