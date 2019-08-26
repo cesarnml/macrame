@@ -63,7 +63,7 @@ const Nav = styled.nav`
 }
 `
 const StyledLink = styled(Link)`
-  transition: all .2s;
+transition: all .2s;
   color: black;
   font-weight: 400;
   font-size: 40px;
