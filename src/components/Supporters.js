@@ -16,6 +16,10 @@ const Contributers = styled.div`
 `
 const ContributerList = styled.ul`
   margin-bottom: 40px;
+
+    a {
+      color: ${props => props.theme.colors.primary}
+    }
 `;
 
 const Border = styled.div`
@@ -41,8 +45,11 @@ const SocialMedia = styled.div`
   svg {
     margin-right: 40px;
     font-size: 40px;
+    text-decoration: none;
+    color: ${props => props.theme.colors.primary};
+    transition: all .2s;
     :hover{
-      
+      color: ${props => props.theme.colors.secondary};
     }
   }
   svg:first-child {
@@ -58,18 +65,18 @@ const Supporters = () => {
     <Contributers>
       <SubMenu>partners</SubMenu>
       <ContributerList>
-        <li>Echo 100 Plus</li>
+        <a href="https://echo100plus.com/en" rel="noopener noreferrer" target="_blank"><li>Echo 100 Plus</li></a>
         <Author>An Austrian charity helping refugees</Author>
-        <li>Zine</li>
+        <a href="https://issuu.com/echo100plus/docs/web_2" rel="noopener noreferrer" target="_blank">Zine</a>
         <Author>A publication by and for refugees</Author>
     
       </ContributerList>
       <Border />
       <SubMenu>Follow</SubMenu>
       <SocialMedia>
-        <FaFacebookSquare/>
-        <FaGithubSquare/>
-        <FaTwitterSquare />
+        <a ><FaFacebookSquare/></a>
+        <a href="https://github.com/cesarnml/macrame" rel="noopener noreferrer" target="_blank"><FaGithubSquare/></a>
+        <a href="https://twitter.com/PabloShampoo" rel="noopener noreferrer" target="_blank"><FaTwitterSquare /></a>
       </SocialMedia>
     </Contributers>
   );
