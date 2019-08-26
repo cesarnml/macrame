@@ -46,15 +46,12 @@ const Nav = styled.nav`
     color: ${props => props.theme.colors.secondary};
   }
 
-  .logo {
+  #logo {
     font-family: 'Libre Baskerville', serif;
-    font-size: 1.4rem;
+    font-size: 1.6rem;
       &:hover {
         color: ${props => props.theme.colors.primary};
       }
-      .active {
-    color: ${props => props.theme.colors.primary};
-  }
 
     span {
       display:block;
@@ -96,7 +93,7 @@ const Menu = () => {
       <Nav>
         <ul>
           <li>
-            <Link to='/'  className='logo' activeClassName='active'>
+            <Link to='/'  id='logo' >
               MACRAMÉ
              <span> مقرمة</span>
             </Link>
