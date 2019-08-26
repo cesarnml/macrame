@@ -63,6 +63,7 @@ const Nav = styled.nav`
 }
 `
 const StyledLink = styled(Link)`
+  transition: all .2s;
   color: black;
   font-weight: 400;
   font-size: 40px;
@@ -72,9 +73,6 @@ const StyledLink = styled(Link)`
   padding: 0 1.5em;
   font-family: 'Libre Baskerville', serif;
   text-decoration: none;
-
-
-
 
     &:hover{
       color: ${props => props.theme.colors.secondary};
@@ -88,6 +86,7 @@ const StyledLink = styled(Link)`
 const MainChoice = styled.div`
 display:flex;
 justify-content:space-around;
+
 `
 
 const Menu = () => {
