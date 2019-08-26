@@ -7,6 +7,8 @@ import Layout from 'components/Layout'
 import Container from 'components/Container'
 import { makeId } from 'utils/index.js'
 import slugify from 'slugify'
+import { Link } from 'gatsby'
+
 
 const Write = props => {
   const fileInputRef = useRef()
@@ -166,7 +168,7 @@ const Write = props => {
             onChange={handleInputChange}
             placeholder='Story text ...'
           />
-          <button type='submit'>Share</button>
+          <Link to={"/"}><button type='submit'>Share</button></Link>
         </Form>
       </Container>
     </Layout>

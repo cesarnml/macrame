@@ -239,11 +239,11 @@ class ContactForm extends React.Component {
 
         <Modal visible={this.state.showModal}>
           <p>
-            Thank you for reaching out. I will get back to you as soon as
+            Thank you for reaching out. We will get back to you as soon as
             possible.
           </p>
           <Link to='/'  activeClassName='active'>
-            <Button onClick={this.closeModal}><Link to='/'  activeClassName='active'>Okay </Link></Button>
+            <Button onClick={this.closeModal}>Okay</Button>
           </Link>
         </Modal>
       </Form>
