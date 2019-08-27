@@ -19,8 +19,6 @@ const SubMenu = styled.p`
 `;
 const SubList = styled.div`
 display:flex;
-
-
 `;
 
 
@@ -38,8 +36,14 @@ const Index = ({ data, pageContext, location }) => {
         </Helmet>
       )}
       <Container>
+      <SubMenu>SpotLight</SubMenu>
         <CardList>
           <Card {...featuredPost} featured />
+          </CardList>
+          <SubList>
+            <SubMenu>Top Stories</SubMenu>
+          </SubList>
+          <CardList>
           {posts.slice(1).map(({ node: post }) => (
             <Card key={post.id} {...post} />
           ))}
