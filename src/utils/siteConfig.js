@@ -5,8 +5,8 @@ module.exports = {
   siteDescription:
     'A space for displaced peoples to come together and share their stories of tragedy and triumph. Amongst each other and for each other.',
   siteUrl: 'https://macrame.netlify.com', // Site domain. Do not include a trailing slash! If you wish to use a path prefix you can read more about that here: https://www.gatsbyjs.org/docs/path-prefix/
-  postsPerHomePage: 7, // Number of posts shown on the 1st page of of the index.js template (home page)
-  postsPerPage: 6, // Number of posts shown on paginated pages
+  postsPerIndex: 7, // Number of posts shown on the 1st page of of the index.js template (home page)
+  postsPerRead: 6, // Number of posts shown on paginated pages
   author: 'Macramé User', // Author for RSS author segment and SEO schema
   authorUrl: 'https://macrame.netlify.com/about/', // URL used for author and publisher schema, can be a social profile or other personal site
   userTwitter: '@pabloshampoo', // Change for Twitter Cards

@@ -45,34 +45,38 @@ const PageIndicator = styled.span`
   opacity: 0.7;
 `
 
-class Pagination extends React.Component {
-  render() {
-    const { numPages, currentPage, slug } = this.props.context
-    const isFirst = currentPage === 1
-    const isLast = currentPage === numPages
-    const isNotPaginated = isFirst & isLast
+const Pagination = props => {
+  const { numReadPages, numIndexPages, currentPage } = props.context
+  const numPages = numReadPages || numIndexPages
+  const isFirst = currentPage === 1
+  const isLast = currentPage === numPages
+  const isNotPaginated = isFirst === isLast
+  const pathname = props.location.pathname.includes('read') ? '/read' : '/'
+  const prevPageNum = currentPage - 1
+  const nextPageNum = currentPage + 1
 
-    const prevPageNum = currentPage - 1 === 1 ? `` : currentPage - 1
-    const nextPageNum = currentPage + 1
+  let prevPageLink = isFirst ? '' : `/${prevPageNum}`
+  const nextPageLink = isLast ? '' : `/${nextPageNum}`
 
-    const pathPrefix = typeof slug === 'string' ? `/tag/${slug}` : ''
-    const prevPageLink = isFirst ? null : `${pathPrefix}/${prevPageNum}/`
-    const nextPageLink = isLast ? null : `${pathPrefix}/${nextPageNum}/`
+  if (prevPageLink === '/1') prevPageLink = ''
 
-    return (
-      <Wrapper>
-        {!isFirst && (
-          <PreviousLink to={prevPageLink}>&#8592; Prev Page</PreviousLink>
-        )}
-        {!isNotPaginated && (
-          <PageIndicator>
-            {currentPage}/{numPages}
-          </PageIndicator>
-        )}
-        {!isLast && <NextLink to={nextPageLink}>Next Page &#8594;</NextLink>}
-      </Wrapper>
-    )
-  }
+  return (
+    <Wrapper>
+      {!isFirst && (
+        <PreviousLink to={`${pathname}${prevPageLink}`}>
+          &#8592; Prev Page
+        </PreviousLink>
+      )}
+      {!isNotPaginated && (
+        <PageIndicator>
+          {currentPage}/{numPages}
+        </PageIndicator>
+      )}
+      {!isLast && (
+        <NextLink to={`${pathname}${nextPageLink}`}>Next Page &#8594;</NextLink>
+      )}
+    </Wrapper>
+  )
 }
 
 export default Pagination

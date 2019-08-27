@@ -8,39 +8,20 @@ import Container from 'components/Container'
 import Pagination from 'components/Pagination'
 import SEO from 'components/SEO'
 import config from 'utils/siteConfig'
-import styled from 'styled-components'
 
-const SubMenu = styled.p`
-  margin-top: 3px;
-  font-size: 1.0rem;
-  margin-bottom: 30px;
-  color: ${props => props.theme.colors.fourth};
-
-`;
-const SubList = styled.div`
-display:flex;
-
-
-`;
-
-
-const Index = ({ data, pageContext, location }) => {
+const Read = ({ data, pageContext, location }) => {
   const posts = data.allContentfulPost.edges
-  const featuredPost = posts[0].node
   const { currentPage } = pageContext
-  const isFirstPage = currentPage === 1
+
   return (
     <Layout>
       <SEO />
-      {!isFirstPage && (
-        <Helmet>
-          <title>{`${config.siteTitle} - Page ${currentPage}`}</title>
-        </Helmet>
-      )}
+      <Helmet>
+        <title>{`${config.siteTitle} - Page ${currentPage}`}</title>
+      </Helmet>
       <Container>
         <CardList>
-          <Card {...featuredPost} featured />
-          {posts.slice(1).map(({ node: post }) => (
+          {posts.map(({ node: post }) => (
             <Card key={post.id} {...post} />
           ))}
         </CardList>
@@ -56,7 +37,7 @@ export const query = graphql`
       sort: { fields: [publishDate], order: DESC }
       limit: $limit
       skip: $skip
-      filter: { isFeatured: { eq: true } }
+      filter: { isFeatured: { eq: false } }
     ) {
       edges {
         node {
@@ -85,4 +66,4 @@ export const query = graphql`
   }
 `
 
-export default Index
+export default Read

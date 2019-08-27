@@ -7,10 +7,10 @@ import Layout from 'components/Layout'
 import Container from 'components/Container'
 import { makeId } from 'utils/index.js'
 import slugify from 'slugify'
-import { Link } from 'gatsby'
-
+import { navigate } from 'gatsby'
 
 const Write = props => {
+  console.log(props)
   const fileInputRef = useRef()
   const [story, setStory] = useState({
     title: '',
@@ -23,6 +23,7 @@ const Write = props => {
   })
 
   const handleFormSubmit = async e => {
+    console.log('launched')
     e.preventDefault()
     const entryId = makeId(64)
     const client = contentful.createClient({
@@ -72,6 +73,9 @@ const Write = props => {
         country: {
           'en-US': story.country,
         },
+        isFeatured: {
+          'en-US': false,
+        },
         heroImage: {
           'en-US': {
             sys: {
@@ -83,7 +87,8 @@ const Write = props => {
         },
       },
     })
-    entry.publish()
+    navigate('/')
+    // entry.publish()
   }
   const handleInputChange = e => {
     const { name, value } = e.target
@@ -168,7 +173,7 @@ const Write = props => {
             onChange={handleInputChange}
             placeholder='Story text ...'
           />
-          <Link to={"/"}><button type='submit'>Share</button></Link>
+          <button type='submit'>Share</button>
         </Form>
       </Container>
     </Layout>
