@@ -117,7 +117,7 @@ const Menu = () => {
           <Link className='styled' to='/write/' activeClassName='active'>
             Write
           </Link>
-          <Link className='styled' to='/read/1' activeClassName='active'>
+          <Link className='styled' to='/read/' activeClassName='active'>
             Read
           </Link>
         </MainChoice>

@@ -18,28 +18,16 @@ const Read = ({ data, pageContext }) => {
   return (
     <Layout>
       <SEO />
-      {/* {!isFirstPage && ( */}
-      {true && (
-        <Helmet>
-          <title>{`${config.siteTitle} - Page ${currentPage - 1}`}</title>
-        </Helmet>
-      )}
+      <Helmet>
+        <title>{`${config.siteTitle} - Page ${currentPage}`}</title>
+      </Helmet>
       <Container>
-        {/* {isFirstPage ? ( */}
-        {/* {false ? (
-          <CardList>
-            <Card {...featuredPost} featured />
-            {posts.slice(1).map(({ node: post }) => (
-              <Card key={post.id} {...post} />
-            ))}
-          </CardList>
-        ) : ( */}
         <CardList>
-          {posts.map(({ node: post }) => (
+          <Card {...featuredPost} featured />
+          {posts.slice(1).map(({ node: post }) => (
             <Card key={post.id} {...post} />
           ))}
         </CardList>
-        {/* )} */}
       </Container>
       <Pagination context={pageContext} />
     </Layout>
@@ -52,7 +40,7 @@ export const query = graphql`
       sort: { fields: [publishDate], order: DESC }
       limit: $limit
       skip: $skip
-      filter: { isFeatured: { eq: null } }
+      filter: { isFeatured: { eq: false } }
     ) {
       edges {
         node {
