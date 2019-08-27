@@ -6,7 +6,7 @@ import { FaTwitterSquare } from 'react-icons/fa';
 
 
 const Contributers = styled.div`
-  border-top: 1px solid lightgray;
+  border-top: 1px solid ${props => props.theme.colors.secondary};
   margin-top: 30px;
   margin-left:30px;
   margin-bottom: 20px;
@@ -57,8 +57,6 @@ const SocialMedia = styled.div`
   }
   
 `;
-
-
 
 const Supporters = () => {
   return (

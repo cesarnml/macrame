@@ -58,9 +58,19 @@ const Nav = styled.nav`
       width: 40px;
     }
 }
+
+
 `
-const StyledLink = styled(Link)`
-transition: all .2s;
+
+
+
+const MainChoice = styled.div`
+display:flex;
+justify-content:space-around;
+
+.styled {
+  
+  transition: all .2s;
   color: black;
   font-weight: 400;
   font-size: 40px;
@@ -70,19 +80,17 @@ transition: all .2s;
   padding: 0 1.5em;
   font-family: 'Libre Baskerville', serif;
   text-decoration: none;
+  transition: all .2s;
 
-    &:hover{
+  &:hover{
       color: ${props => props.theme.colors.secondary};
     }
   
-    &:active {
+   
+}
+.active {
     color: ${props => props.theme.colors.secondary};
     }
-`
-
-const MainChoice = styled.div`
-display:flex;
-justify-content:space-around;
 
 `
 
@@ -117,12 +125,12 @@ const Menu = () => {
      
       </Nav>
       <MainChoice>
-      <StyledLink className="styled" to='/write/' activeClassName='active'>
+      <Link className="styled" to='/write/' activeClassName='active'>
           Write
-        </StyledLink>
-        <StyledLink className="styled" to='/write/' activeClassName='active'>
+        </Link>
+        <Link className="styled" to='/read/' activeClassName='active'>
           Read
-        </StyledLink>
+        </Link>
       </MainChoice>
     </Header>
     </Container>
