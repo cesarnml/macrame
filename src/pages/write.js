@@ -10,7 +10,6 @@ import slugify from 'slugify'
 import { navigate } from 'gatsby'
 
 const Write = props => {
-  console.log(props)
   const fileInputRef = useRef()
   const [story, setStory] = useState({
     title: '',
@@ -23,7 +22,6 @@ const Write = props => {
   })
 
   const handleFormSubmit = async e => {
-    console.log('launched')
     e.preventDefault()
     const entryId = makeId(64)
     const client = contentful.createClient({
