@@ -46,8 +46,7 @@ const PageIndicator = styled.span`
 `
 
 const Pagination = props => {
-  let { numReadPages, numIndexPages, currentPage } = props.context
-  currentPage = Number(currentPage)
+  const { numReadPages, numIndexPages, currentPage } = props.context
   const numPages = numReadPages || numIndexPages
   const isFirst = currentPage === 1
   const isLast = currentPage === numPages
@@ -61,21 +60,6 @@ const Pagination = props => {
 
   if (prevPageLink === '/1') prevPageLink = ''
 
-  console.log(
-    'Pagination',
-    numIndexPages,
-    numReadPages,
-    numPages,
-    currentPage,
-    isFirst,
-    isLast,
-    isNotPaginated,
-    prevPageNum,
-    nextPageNum,
-    pathname,
-    prevPageLink,
-    nextPageLink
-  )
   return (
     <Wrapper>
       {!isFirst && (

@@ -27,6 +27,8 @@ exports.createPages = ({ graphql, actions }) => {
 
       // Create main home page
       Array.from({ length: numIndexPages }).forEach((_, i) => {
+        // if i = 0, path should be '/'
+        // otherwise, path should be '/i+1' since next to index is page '/2'
         createPage({
           path: `/${i === 0 ? '' : i + 1}`,
           component: path.resolve(`./src/templates/index.js`),

@@ -12,10 +12,8 @@ import config from 'utils/siteConfig'
 const Index = ({ data, pageContext, location }) => {
   const posts = data.allContentfulPost.edges
   const featuredPost = posts[0].node
-  let { currentPage } = pageContext
-  currentPage = Number(currentPage)
+  const { currentPage } = pageContext
   const isFirstPage = currentPage === 1
-  console.log('INDEX', posts, currentPage, isFirstPage)
   return (
     <Layout>
       <SEO />
