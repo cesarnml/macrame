@@ -71,6 +71,9 @@ const Write = props => {
         country: {
           'en-US': story.country,
         },
+        isFeatured: {
+          'en-US': false,
+        },
         heroImage: {
           'en-US': {
             sys: {
@@ -80,12 +83,9 @@ const Write = props => {
             },
           },
         },
-        isFeatured: {
-          'en-US': false,
-        },
       },
     })
-    // entry.publish()
+    entry.publish()
   }
   const handleInputChange = e => {
     const { name, value } = e.target
