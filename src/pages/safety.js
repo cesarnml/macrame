@@ -17,6 +17,11 @@ const StyleOver = styled.div`
   h1 {
     text-align:left;
   }
+
+  p {
+    line-height: 1.9rem;
+    font-size: 16px;
+  }
   
 `;
 
@@ -35,6 +40,7 @@ display:flex;
 `
 
 const Safety = props => {
+  console.log(props)
   return (
     <Layout>
       <Helmet>
@@ -54,9 +60,9 @@ const Safety = props => {
             <p>
               We do not have the resources or the ability to follow up with users and make sure they are safe. If your experiencing a crisis please contact the proper authorities where available.
             </p>
-         
-              <li><a href="https://help.unhcr.org/" alt="link to UNHCR"></a>The UN Refugee Agency</li>
-              <li>International Committee of the Red Cross</li>
+              <br></br>
+              <p><a href="https://help.unhcr.org/" alt="link to UNHCR"></a>The UN Refugee Agency</p>
+              <p>International Committee of the Red Cross</p>
             
             <Concern>Stories have the right to be rejected by the editors on any grounds.</Concern>
             <p>

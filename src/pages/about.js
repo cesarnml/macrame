@@ -18,6 +18,11 @@ const StyleOver = styled.div`
   h1 {
     text-align:left;
   }
+
+  p {
+    line-height: 1.9rem;
+    font-size: 16px;
+  }
   
 `;
 const FlexContainer = styled.div`
@@ -58,9 +63,9 @@ const About = props => {
               displaced people's. However, for the time being it is being
               operated by the following.
             </p>
-          
-              <li>Brandon Pampuch - Front End Dev</li>
-              <li>César Napoleon Mejia Leiva - Full Stack Dev</li>
+              <br></br>
+              <p>Brandon Pampuch - Front End Dev</p>
+              <p>César Napoleon Mejia Leiva - Full Stack Dev</p>
           
             <Concern>How did MACRAMÉ begin ? </Concern>
             <p>

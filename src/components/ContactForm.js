@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import { Link } from 'gatsby'
 
 /*
   ⚠️ This is an example of a contact form powered with Netlify form handling.
@@ -195,53 +196,55 @@ class ContactForm extends React.Component {
   render() {
     return (
       <Form
-        name="contact"
+        name='contact'
         onSubmit={this.handleSubmit}
-        data-netlify="true"
-        data-netlify-honeypot="bot"
+        data-netlify='true'
+        data-netlify-honeypot='bot'
         overlay={this.state.showModal}
         onClick={this.closeModal}
       >
-        <input type="hidden" name="form-name" value="contact" />
+        <input type='hidden' name='form-name' value='contact' />
         <p hidden>
           <label>
             Don’t fill this out:{' '}
-            <input name="bot" onChange={this.handleInputChange} />
+            <input name='bot' onChange={this.handleInputChange} />
           </label>
         </p>
 
         <Name
-          name="name"
-          type="text"
-          placeholder="Full Name"
+          name='name'
+          type='text'
+          placeholder='Full Name'
           value={this.state.name}
           onChange={this.handleInputChange}
           required
         />
         <Email
-          name="email"
-          type="email"
-          placeholder="Email"
+          name='email'
+          type='email'
+          placeholder='Email'
           value={this.state.email}
           onChange={this.handleInputChange}
           required
         />
         <Message
-          name="message"
-          type="text"
-          placeholder="Message"
+          name='message'
+          type='text'
+          placeholder='Message'
           value={this.state.message}
           onChange={this.handleInputChange}
           required
         />
-        <Submit name="submit" type="submit" value="Send" />
+        <Submit name='submit' type='submit' value='Send' />
 
         <Modal visible={this.state.showModal}>
           <p>
-            Thank you for reaching out. I will get back to you as soon as
+            Thank you for reaching out. We will get back to you as soon as
             possible.
           </p>
-          <Button onClick={this.closeModal}>Okay</Button>
+          <Link to='/'  activeClassName='active'>
+            <Button onClick={this.closeModal}>Okay</Button>
+          </Link>
         </Modal>
       </Form>
     )

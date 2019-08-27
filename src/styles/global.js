@@ -6,7 +6,7 @@ const GlobalStyle = createGlobalStyle`
    License: none (public domain)
   */
   html, body, div, span, applet, object, iframe,
-  , h2, h3, h4, h5, h6, p, blockquote, pre,
+  h2, h3, h4, h5, h6, p, blockquote, pre,
   a, abbr, acronym, address, big, cite, code,
   del, dfn, em, img, ins, kbd, q, s, samp,
   small, strike, strong, sub, sup, tt, var,
@@ -25,7 +25,7 @@ const GlobalStyle = createGlobalStyle`
     /* stylelint-disable-next-line */
     font: inherit;
     vertical-align: baseline;
-  }
+  } 
 
   /* Added to Fix Footer to bottom of viewport */
   html, body {

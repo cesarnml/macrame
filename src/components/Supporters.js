@@ -1,14 +1,25 @@
 import React from "react";
 import styled from "styled-components";
+import { FaFacebookSquare } from 'react-icons/fa';
+import { FaGithubSquare } from 'react-icons/fa';
+import { FaTwitterSquare } from 'react-icons/fa';
+
 
 const Contributers = styled.div`
-  border-top: 1px solid lightgray;
+  border-top: 1px solid ${props => props.theme.colors.secondary};
   margin-top: 30px;
   margin-left:30px;
   margin-bottom: 20px;
+  @media (max-width: ${props => props.theme.responsive.medium}) {
+    margin-right: 80px;
+    }
 `
 const ContributerList = styled.ul`
   margin-bottom: 40px;
+
+    a {
+      color: ${props => props.theme.colors.primary}
+    }
 `;
 
 const Border = styled.div`
@@ -31,38 +42,39 @@ const Author = styled.p`
 const SocialMedia = styled.div`
   display: flex;
 
-  i {
+  svg {
     margin-right: 40px;
     font-size: 40px;
+    text-decoration: none;
+    color: ${props => props.theme.colors.primary};
+    transition: all .2s;
     :hover{
-      
+      color: ${props => props.theme.colors.secondary};
     }
   }
-  i:first-child {
+  svg:first-child {
     margin-left: 50px;
   }
   
 `;
-
-
 
 const Supporters = () => {
   return (
     <Contributers>
       <SubMenu>partners</SubMenu>
       <ContributerList>
-        <li>Echo 100 Plus</li>
+        <a href="https://echo100plus.com/en" rel="noopener noreferrer" target="_blank"><li>Echo 100 Plus</li></a>
         <Author>An Austrian charity helping refugees</Author>
-        <li>Zine</li>
+        <a href="https://issuu.com/echo100plus/docs/web_2" rel="noopener noreferrer" target="_blank">Zine</a>
         <Author>A publication by and for refugees</Author>
     
       </ContributerList>
       <Border />
       <SubMenu>Follow</SubMenu>
       <SocialMedia>
-        <i className="fab fa-github-square" />
-        <i className="fab fa-facebook-square" />
-        <i className="fab fa-twitter-square" />
+        <a ><FaFacebookSquare/></a>
+        <a href="https://github.com/cesarnml/macrame" rel="noopener noreferrer" target="_blank"><FaGithubSquare/></a>
+        <a href="https://twitter.com/PabloShampoo" rel="noopener noreferrer" target="_blank"><FaTwitterSquare /></a>
       </SocialMedia>
     </Contributers>
   );
