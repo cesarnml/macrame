@@ -13,7 +13,7 @@ const Nav = styled.nav`
   width: 100%;
   max-width: ${props => props.theme.sizes.maxWidth};
   margin: 0 auto;
-  padding: 0 1.5em;
+  padding: 0 1.0em;
 
   ul {
     display: flex;

@@ -10,6 +10,7 @@ import PostLinks from 'components/PostLinks'
 import PostDetails from 'components/PostDetails'
 import SEO from 'components/SEO'
 
+
 const PostTemplate = ({ data, pageContext }) => {
   const { title, slug, heroImage, body, publishDate } = data.contentfulPost
   const postNode = data.contentfulPost
@@ -25,7 +26,6 @@ const PostTemplate = ({ data, pageContext }) => {
       <SEO pagePath={slug} postNode={postNode} postSEO />
 
       <Hero title={title} image={heroImage} height={'50vh'} />
-
       <Container>
         <PostDetails
           date={publishDate}

@@ -8,6 +8,19 @@ import Container from 'components/Container'
 import Pagination from 'components/Pagination'
 import SEO from 'components/SEO'
 import config from 'utils/siteConfig'
+import styled from 'styled-components'
+
+const SubMenu = styled.p`
+  margin-top: 3px;
+  font-size: 1.0rem;
+  margin-bottom: 30px;
+  color: ${props => props.theme.colors.fourth};
+
+`;
+const SubList = styled.div`
+display:flex;
+`;
+
 
 const Index = ({ data, pageContext, location }) => {
   const posts = data.allContentfulPost.edges
@@ -23,8 +36,14 @@ const Index = ({ data, pageContext, location }) => {
         </Helmet>
       )}
       <Container>
+      <SubMenu>SpotLight</SubMenu>
         <CardList>
           <Card {...featuredPost} featured />
+          </CardList>
+          <SubList>
+            <SubMenu>Top Stories</SubMenu>
+          </SubList>
+          <CardList>
           {posts.slice(1).map(({ node: post }) => (
             <Card key={post.id} {...post} />
           ))}

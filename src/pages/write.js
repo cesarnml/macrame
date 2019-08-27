@@ -119,7 +119,8 @@ const Write = props => {
           <div className='wrapper-file-input'>
             {!story.fileSrc ? (
               <label htmlFor='file-input' className='file-label'>
-                Select a Cover Image
+                Select a Cover Image (required)
+               
               </label>
             ) : (
               <div
