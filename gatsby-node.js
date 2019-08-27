@@ -23,9 +23,7 @@ exports.createPages = ({ graphql, actions }) => {
       const posts = result.data.allContentfulPost.edges
       const postsPerFirstPage = config.postsPerHomePage
       const postsPerPage = config.postsPerPage
-      const numPages = Math.ceil(
-        posts.slice(postsPerFirstPage).length / postsPerPage
-      )
+      const numPages = Math.ceil(posts.length / postsPerPage)
 
       // Create main home page
       createPage({
@@ -42,11 +40,11 @@ exports.createPages = ({ graphql, actions }) => {
       // Create additional pagination on home page if needed
       Array.from({ length: numPages }).forEach((_, i) => {
         createPage({
-          path: `/${i + 2}/`,
-          component: path.resolve(`./src/templates/index.js`),
+          path: `/read/${i + 1}/`,
+          component: path.resolve(`./src/templates/read.js`),
           context: {
             limit: postsPerPage,
-            skip: i * postsPerPage + postsPerFirstPage,
+            skip: i * postsPerPage,
             numPages: numPages + 1,
             currentPage: i + 2,
           },
@@ -70,8 +68,6 @@ exports.createPages = ({ graphql, actions }) => {
       resolve()
     })
   })
-
-
 
   return Promise.all([loadPosts])
 }

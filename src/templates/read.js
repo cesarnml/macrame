@@ -9,7 +9,7 @@ import Pagination from 'components/Pagination'
 import SEO from 'components/SEO'
 import config from 'utils/siteConfig'
 
-const Index = ({ data, pageContext }) => {
+const Read = ({ data, pageContext }) => {
   const posts = data.allContentfulPost.edges
   const featuredPost = posts[0].node
   const { currentPage } = pageContext
@@ -18,28 +18,30 @@ const Index = ({ data, pageContext }) => {
   return (
     <Layout>
       <SEO />
-      {!isFirstPage && (
+      {/* {!isFirstPage && ( */}
+      {true && (
         <Helmet>
-          <title>{`${config.siteTitle} - Page ${currentPage}`}</title>
+          <title>{`${config.siteTitle} - Page ${currentPage - 1}`}</title>
         </Helmet>
       )}
       <Container>
-        {isFirstPage ? (
+        {/* {isFirstPage ? ( */}
+        {/* {false ? (
           <CardList>
             <Card {...featuredPost} featured />
             {posts.slice(1).map(({ node: post }) => (
               <Card key={post.id} {...post} />
             ))}
           </CardList>
-        ) : (
-          <CardList>
-            {posts.map(({ node: post }) => (
-              <Card key={post.id} {...post} />
-            ))}
-          </CardList>
-        )}
+        ) : ( */}
+        <CardList>
+          {posts.map(({ node: post }) => (
+            <Card key={post.id} {...post} />
+          ))}
+        </CardList>
+        {/* )} */}
       </Container>
-      {/* <Pagination context={pageContext} /> */}
+      <Pagination context={pageContext} />
     </Layout>
   )
 }
@@ -50,7 +52,7 @@ export const query = graphql`
       sort: { fields: [publishDate], order: DESC }
       limit: $limit
       skip: $skip
-      filter: { isFeatured: { eq: true } }
+      filter: { isFeatured: { eq: null } }
     ) {
       edges {
         node {
@@ -79,4 +81,4 @@ export const query = graphql`
   }
 `
 
-export default Index
+export default Read
