@@ -9,7 +9,6 @@ import { makeId } from 'utils/index.js'
 import slugify from 'slugify'
 import { Link } from 'gatsby'
 
-
 const Write = props => {
   const fileInputRef = useRef()
   const [story, setStory] = useState({
@@ -81,9 +80,12 @@ const Write = props => {
             },
           },
         },
+        isFeatured: {
+          'en-US': false,
+        },
       },
     })
-    entry.publish()
+    // entry.publish()
   }
   const handleInputChange = e => {
     const { name, value } = e.target
@@ -168,7 +170,9 @@ const Write = props => {
             onChange={handleInputChange}
             placeholder='Story text ...'
           />
-          <Link to={"/"}><button type='submit'>Share</button></Link>
+          <Link to={'/'}>
+            <button type='submit'>Share</button>
+          </Link>
         </Form>
       </Container>
     </Layout>
