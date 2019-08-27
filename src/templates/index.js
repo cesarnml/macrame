@@ -8,6 +8,21 @@ import Container from 'components/Container'
 import Pagination from 'components/Pagination'
 import SEO from 'components/SEO'
 import config from 'utils/siteConfig'
+import styled from 'styled-components'
+
+const SubMenu = styled.p`
+  margin-top: 3px;
+  font-size: 1.0rem;
+  margin-bottom: 30px;
+  color: ${props => props.theme.colors.fourth};
+
+`;
+const SubList = styled.div`
+display:flex;
+
+
+`;
+
 
 const Index = ({ data, pageContext }) => {
   const posts = data.allContentfulPost.edges
@@ -25,12 +40,23 @@ const Index = ({ data, pageContext }) => {
       )}
       <Container>
         {isFirstPage ? (
+          <>
           <CardList>
+    
+          <SubMenu>Spotlight</SubMenu>
+         
             <Card {...featuredPost} featured />
+            </CardList>
+            <SubList> 
+            <SubMenu id="id">Top Stories</SubMenu>
+            </SubList>
+           <CardList>
             {posts.slice(1).map(({ node: post }) => (
               <Card key={post.id} {...post} />
             ))}
+           
           </CardList>
+          </>
         ) : (
           <CardList>
             {posts.map(({ node: post }) => (

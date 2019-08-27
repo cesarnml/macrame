@@ -12,8 +12,21 @@ const List = styled.ul`
   }
 `
 
+const SubMenu = styled.p`
+
+  font-size: 1.0rem;
+  margin-bottom: 30px;
+  color: ${props => props.theme.colors.fourth};
+`;
+
 const CardList = props => {
-  return <List>{props.children}</List>
+ 
+  return (
+    <>
+  
+  <List>{props.children}</List>
+  </>
+  )
 }
 
 export default CardList
