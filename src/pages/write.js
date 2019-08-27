@@ -131,7 +131,6 @@ const Write = props => {
             )}
           </div>
           <input
-            required
             id='file-input'
             className='file-input'
             type='file'
