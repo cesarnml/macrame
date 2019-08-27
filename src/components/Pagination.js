@@ -46,38 +46,50 @@ const PageIndicator = styled.span`
 `
 
 const Pagination = props => {
-  console.log('PROPS', props)
-  const { numReadPages, numIndexPages, currentPage, slug } = props.context
-  console.log(props.context)
+  let { numReadPages, numIndexPages, currentPage } = props.context
+  currentPage = Number(currentPage)
   const numPages = numReadPages || numIndexPages
-  const isFirst = Number(currentPage) === 1
-  const isLast = Number(currentPage) === numPages
-  console.log(currentPage, numPages, 'here')
-  const isNotPaginated = isFirst & isLast
-  const pathname = props.location.pathname.includes('read') ? '/read' : ''
-  const prevPageNum = Number(currentPage) === 1 ? null : Number(currentPage) - 1
-  const nextPageNum = Number(currentPage) + 1
+  const isFirst = currentPage === 1
+  const isLast = currentPage === numPages
+  const isNotPaginated = isFirst === isLast
+  const pathname = props.location.pathname.includes('read') ? '/read' : '/'
+  const prevPageNum = currentPage - 1
+  const nextPageNum = currentPage
 
-  const pathPrefix = typeof slug === 'string' ? `/tag/${slug}` : ''
-  const prevPageLink = isFirst ? null : `${pathPrefix}/${prevPageNum}/`
-  const nextPageLink = isLast ? null : `${pathPrefix}/${nextPageNum}/`
+  let prevPageLink = isFirst ? '' : `/${prevPageNum}`
+  const nextPageLink = isLast ? '' : `/${nextPageNum}`
 
+  if (prevPageLink === '/1') prevPageLink = ''
+
+  console.log(
+    'Pagination',
+    numIndexPages,
+    numReadPages,
+    numPages,
+    currentPage,
+    isFirst,
+    isLast,
+    isNotPaginated,
+    prevPageNum,
+    nextPageNum,
+    pathname,
+    prevPageLink,
+    nextPageLink
+  )
   return (
     <Wrapper>
       {!isFirst && (
-        <PreviousLink to={`${pathname}/${prevPageLink}`}>
+        <PreviousLink to={`${pathname}${prevPageLink}`}>
           &#8592; Prev Page
         </PreviousLink>
       )}
       {!isNotPaginated && (
         <PageIndicator>
-          {Number(currentPage)}/{numPages}
+          {currentPage}/{numPages}
         </PageIndicator>
       )}
       {!isLast && (
-        <NextLink to={`${pathname}/${nextPageLink}`}>
-          Next Page &#8594;
-        </NextLink>
+        <NextLink to={`${pathname}${nextPageLink}`}>Next Page &#8594;</NextLink>
       )}
     </Wrapper>
   )

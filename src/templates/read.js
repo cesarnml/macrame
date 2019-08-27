@@ -12,7 +12,6 @@ import config from 'utils/siteConfig'
 const Read = ({ data, pageContext, location }) => {
   const posts = data.allContentfulPost.edges
   console.log(posts, 'READ')
-  const featuredPost = posts[0].node
   const { currentPage } = pageContext
 
   return (
