@@ -7,6 +7,7 @@ import PageTitle from 'components/PageTitle'
 import styled from 'styled-components'
 import Supporters from '../components/Supporters'
 
+
 // import PropTypes from 'prop-types'
 
 const Concern = styled.h1`
@@ -20,6 +21,10 @@ const StyleOver = styled.div`
   p {
     line-height: 1.9rem;
     font-size: 16px;
+  }
+
+  a {
+    color: ${props => props.theme.colors.primary};
   }
 `
 
@@ -51,7 +56,7 @@ const Safety = props => {
             <div className='content'>
               <Concern>Please use anonymous names and places.</Concern>
               <p>
-                This is up to the writers discression. However, if you believe
+                This is up to the writers discretion. However, if you believe
                 that information provided here could get someone else hurt or
                 jeopardize their safety please consider either posting it
                 anonymously or not posting it at all.
@@ -65,18 +70,19 @@ const Safety = props => {
                 please contact the proper authorities where available.
               </p>
               <br></br>
-              <p>
-                <a href='https://help.unhcr.org/' alt='link to UNHCR'></a>The UN
-                Refugee Agency
-              </p>
-              <p>International Committee of the Red Cross</p>
+              
+                <a href='https://help.unhcr.org/#_ga=2.77856916.1629316781.1566928972-2139737474.1566928972' rel="noopener noreferrer" target="_blank" >
+                UN Refugee Agency</a>
+           
+            
+              <a href="https://www.icrc.org/en"><p>International Committee of the Red Cross</p></a>
 
               <Concern>
                 Stories have the right to be rejected by the editors on any
                 grounds.
               </Concern>
               <p>
-                While we endevour to share as many stories as possible we cannot
+                While we endeavour to share as many stories as possible we cannot
                 publish all stories. Stories that contain strong language or
                 hate speech will not be published.
               </p>
