@@ -54,7 +54,7 @@ const Pagination = props => {
   const isNotPaginated = isFirst === isLast
   const pathname = props.location.pathname.includes('read') ? '/read' : '/'
   const prevPageNum = currentPage - 1
-  const nextPageNum = currentPage
+  const nextPageNum = currentPage + 1
 
   let prevPageLink = isFirst ? '' : `/${prevPageNum}`
   const nextPageLink = isLast ? '' : `/${nextPageNum}`

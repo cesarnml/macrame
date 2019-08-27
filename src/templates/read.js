@@ -11,8 +11,8 @@ import config from 'utils/siteConfig'
 
 const Read = ({ data, pageContext, location }) => {
   const posts = data.allContentfulPost.edges
-  console.log(posts, 'READ')
-  const { currentPage } = pageContext
+  const { currentPage, skip, limit } = pageContext
+  console.log(posts, 'READ', skip, limit)
 
   return (
     <Layout>

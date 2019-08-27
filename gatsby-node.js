@@ -27,14 +27,12 @@ exports.createPages = ({ graphql, actions }) => {
 
       // Create main home page
       Array.from({ length: numIndexPages }).forEach((_, i) => {
-        if (i === 0) i = ''
-
         createPage({
-          path: `/${i}`,
+          path: `/${i === 0 ? '' : i + 1}`,
           component: path.resolve(`./src/templates/index.js`),
           context: {
             limit: postsPerIndex,
-            skip: 0,
+            skip: i * postsPerIndex,
             numIndexPages: numIndexPages,
             currentPage: i + 1,
           },
@@ -82,14 +80,12 @@ exports.createPages = ({ graphql, actions }) => {
 
       // Create main home page
       Array.from({ length: numReadPages }).forEach((_, i) => {
-        if (i === 0) i = ''
-
         createPage({
-          path: `/read/${i}`,
+          path: `/read/${i === 0 ? '' : i + 1}`,
           component: path.resolve(`./src/templates/read.js`),
           context: {
             limit: postsPerRead,
-            skip: 0,
+            skip: i * postsPerRead,
             numReadPages: numReadPages,
             currentPage: i + 1,
           },
@@ -116,22 +112,3 @@ exports.createPages = ({ graphql, actions }) => {
 
   return Promise.all([loadIndexPosts, loadReadPosts])
 }
-
-// const postsPerRead = config.postsPerRead
-
-//   // Create additional pagination on home page if needed
-//       // Fancy method of generating n-loop
-//       Array.from({ length: numIndexPages }).forEach((_, i) => {
-//         if (i === 0) i = ''
-
-//         createPage({
-//           path: `/read/${i}`,
-//           component: path.resolve(`./src/templates/read.js`),
-//           context: {
-//             limit: postsPerPage,
-//             skip: i * postsPerPage,
-//             numIndexPages: numIndexPages + 1,
-//             currentPage: i + 2,
-//           },
-//         })
-//       })
