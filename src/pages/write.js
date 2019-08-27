@@ -120,7 +120,6 @@ const Write = props => {
             {!story.fileSrc ? (
               <label htmlFor='file-input' className='file-label'>
                 Select a Cover Image (required)
-               
               </label>
             ) : (
               <div
@@ -132,6 +131,7 @@ const Write = props => {
             )}
           </div>
           <input
+            required
             id='file-input'
             className='file-input'
             type='file'
