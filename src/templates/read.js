@@ -9,11 +9,11 @@ import Pagination from 'components/Pagination'
 import SEO from 'components/SEO'
 import config from 'utils/siteConfig'
 
-const Read = ({ data, pageContext }) => {
+const Read = ({ data, pageContext, location }) => {
   const posts = data.allContentfulPost.edges
+  console.log(posts, 'READ')
   const featuredPost = posts[0].node
   const { currentPage } = pageContext
-  const isFirstPage = currentPage === 1
 
   return (
     <Layout>
@@ -23,13 +23,12 @@ const Read = ({ data, pageContext }) => {
       </Helmet>
       <Container>
         <CardList>
-          <Card {...featuredPost} featured />
-          {posts.slice(1).map(({ node: post }) => (
+          {posts.map(({ node: post }) => (
             <Card key={post.id} {...post} />
           ))}
         </CardList>
       </Container>
-      <Pagination context={pageContext} />
+      <Pagination context={pageContext} location={location} />
     </Layout>
   )
 }
