@@ -12,19 +12,20 @@ const Header = styled.header`
 const Nav = styled.nav`
   width: 100%;
   max-width: ${props => props.theme.sizes.maxWidth};
-  margin: 0 auto;
   padding: 0 1.0em;
 
   ul {
     display: flex;
     justify-content: space-between;
+    margin: 0 auto;
+     
   }
 
   li {
     display: inline-block;
-    margin-left: 1em;
+    margin-left: .9em;
     &:first-child {
-      position: relative;
+      /* position: relative; */
       margin: 0;
       flex-basis: 100%;
     }
@@ -48,6 +49,9 @@ const Nav = styled.nav`
   #logo {
     font-family: 'Libre Baskerville', serif;
     font-size: 1.6rem;
+    @media (max-width: ${props => props.theme.responsive.medium}) {
+    font-size: 1.0rem;
+    }
     &:hover {
       color: ${props => props.theme.colors.primary};
     }
@@ -74,7 +78,9 @@ const MainChoice = styled.div`
     font-family: 'Libre Baskerville', serif;
     text-decoration: none;
     transition: all 0.2s;
-
+    @media (max-width: ${props => props.theme.responsive.medium}) {
+      padding: 0;
+      }
     &:hover {
       color: ${props => props.theme.colors.secondary};
     }

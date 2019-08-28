@@ -7,6 +7,9 @@ const Wrapper = styled.section`
   max-width: ${props => props.theme.sizes.maxWidth};
   padding: .4em 1.5em 1em;
   flex-grow: 1;
+  @media (max-width: ${props => props.theme.responsive.medium}) {
+    padding: .4em 1.5em 1em;
+    }
 `
 
 const Container = props => {
