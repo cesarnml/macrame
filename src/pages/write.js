@@ -43,11 +43,14 @@ const Modal = styled.div`
 
 
 const Write = props => {
+<<<<<<< HEAD
 
 
 
   
   console.log(props)
+=======
+>>>>>>> b8287fe1120c800e156012eb86acf5ef58b0b932
   const fileInputRef = useRef()
   const [story, setStory] = useState({
     title: '',
@@ -65,7 +68,6 @@ const Write = props => {
   }
 
   const handleFormSubmit = async e => {
-    console.log('launched')
     e.preventDefault()
     const entryId = makeId(64)
     const client = contentful.createClient({
@@ -166,7 +168,6 @@ const Write = props => {
             {!story.fileSrc ? (
               <label htmlFor='file-input' className='file-label'>
                 Select a Cover Image (required)
-               
               </label>
             ) : (
               <div

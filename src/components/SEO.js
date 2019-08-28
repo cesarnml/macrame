@@ -36,11 +36,15 @@ class SEO extends Component {
       pageUrl = config.siteUrl + '/' + pagePath + '/'
     }
     // Use Hero Image for OpenGraph
-    if (postSEO) {
-      image = 'https:' + postNode.heroImage.ogimg.src
-      imgWidth = postNode.heroImage.ogimg.width
-      imgHeight = postNode.heroImage.ogimg.height
-    }
+
+    // TODO: Fix SEO bug
+    //! postNode.heroImage.ogimg undefined for some reason
+
+    // if (postSEO) {
+    //   image = 'https:' + postNode.heroImage.ogimg.src
+    //   imgWidth = postNode.heroImage.ogimg.width
+    //   imgHeight = postNode.heroImage.ogimg.height
+    // }
 
     // Default Website Schema
     const schemaOrgJSONLD = [
