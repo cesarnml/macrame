@@ -124,7 +124,9 @@ const Write = props => {
       </Helmet>
 
       <Container>
-        <Form onSubmit={handleFormSubmit}>
+        <Form onSubmit={handleFormSubmit}
+          overlay={story.showModal}
+        >
           <div className='wrapper-file-input'>
             {!story.fileSrc ? (
               <label htmlFor='file-input' className='file-label'>
@@ -209,6 +211,19 @@ const Form = styled.form`
     &:focus {
       border-bottom: 1px solid ${props => props.theme.colors.secondary};
     }
+  }
+  &::before {
+    content: '';
+    background: black;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    transition: 0.2s all;
+    opacity: ${props => (props.overlay ? '.8' : '0')};
+    visibility: ${props => (props.overlay ? 'visible' : 'hidden')};
   }
   textarea {
     height: 300px;
