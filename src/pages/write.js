@@ -9,7 +9,44 @@ import { makeId } from 'utils/index.js'
 import slugify from 'slugify'
 import { navigate } from 'gatsby'
 
+
+
+const Modal = styled.div`
+  background: white;
+  padding: 2em;
+  border-radius: 2px;
+  position: fixed;
+  min-width: 75%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0 auto;
+  z-index: 99;
+  display: flex;
+  flex-flow: column;
+  align-items: flex-start;
+  transition: 0.2s all;
+  opacity: ${props => (props.visible ? '1' : '0')};
+  visibility: ${props => (props.visible ? 'visible' : 'hidden')};
+  @media screen and (min-width: ${props => props.theme.responsive.small}) {
+    min-width: inherit;
+    max-width: 400px;
+  }
+  p {
+    line-height: 1.6;
+    margin: 0 0 2em 0;
+  }
+`
+
+
+
+
+
 const Write = props => {
+
+
+
+  
   console.log(props)
   const fileInputRef = useRef()
   const [story, setStory] = useState({
@@ -20,7 +57,12 @@ const Write = props => {
     coverImage: '',
     file: '',
     fileSrc: '',
+    showModal: false,
   })
+
+  const closeModal = () => {
+    setStory({...story, showModal: false })
+  }
 
   const handleFormSubmit = async e => {
     console.log('launched')
@@ -87,7 +129,9 @@ const Write = props => {
         },
       },
     })
+    setStory({...story, showModal: true })
     navigate('/')
+   
     // entry.publish()
   }
   const handleInputChange = e => {
@@ -174,6 +218,15 @@ const Write = props => {
             onChange={handleInputChange}
             placeholder='Story text ...'
           />
+          <Modal visible={story.showModal}>
+          <p>
+            Thank you for reaching out. We will get back to you as soon as
+            possible.
+          </p>
+          
+            <button onClick={closeModal}>Share</button>
+  
+        </Modal>
           <button type='submit'>Share</button>
         </Form>
       </Container>
