@@ -23,12 +23,12 @@ const Write = props => {
 
   const closeModal = (e) => {
     e.preventDefault()
-    setStory({...story, showModal: false })
- 
+    setStory({ ...story, showModal: false })
+
   }
 
   const handleFormSubmit = async e => {
-    setStory({...story, showModal: true })
+    setStory({ ...story, showModal: true })
     e.preventDefault()
     const entryId = makeId(64)
     const client = contentful.createClient({
@@ -92,9 +92,9 @@ const Write = props => {
         },
       },
     })
-    
+
     // navigate('/')
-   
+
     // entry.publish()
   }
   const handleInputChange = e => {
@@ -130,16 +130,17 @@ const Write = props => {
           <div className='wrapper-file-input'>
             {!story.fileSrc ? (
               <label htmlFor='file-input' className='file-label'>
-                Select a Cover Image (required)
+                Select Image (required) <br />
+                do not use self image
               </label>
             ) : (
-              <div
-                className='wrapper-image'
-                onClick={() => fileInputRef.current.click()}
-              >
-                <img src={story.fileSrc} alt='' />
-              </div>
-            )}
+                <div
+                  className='wrapper-image'
+                  onClick={() => fileInputRef.current.click()}
+                >
+                  <img src={story.fileSrc} alt='' />
+                </div>
+              )}
           </div>
           <input
             id='file-input'
@@ -165,14 +166,14 @@ const Write = props => {
             name='author'
             value={story.author}
             onChange={handleInputChange}
-            placeholder='Author (optional)'
+            placeholder='Author (not displayed in story)'
           />
           <input
             type='text'
             name='country'
             value={story.country}
             onChange={handleInputChange}
-            placeholder='Country (optional)'
+            placeholder='Country (not displayed in story)'
           />
           <textarea
             required
@@ -183,13 +184,13 @@ const Write = props => {
             placeholder='Story text ...'
           />
           <Modal visible={story.showModal}>
-          <p>
-            Thank you.  Your story has been submitted .
+            <p>
+              Thank you.  Your story has been submitted .
           </p>
-          
+
             <button onClick={closeModal}>close</button>
-  
-        </Modal>
+
+          </Modal>
           <button type='submit'>Share</button>
         </Form>
       </Container>
