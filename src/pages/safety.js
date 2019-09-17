@@ -59,22 +59,25 @@ const Safety = props => {
                 This is up to the writers discretion. However, if you believe
                 that information provided here could get someone else hurt or
                 jeopardize their safety please consider either posting it
-                anonymously or not posting it at all.
+                anonymously or not posting it at all.  Furthermore, please consider
+                your own safety and immigration status when posting stories with your own
+                name in the story body. Names shared in the author section will not be shared
+                online.
               </p>
               <Concern>
                 This is not a resource for reporting crimes or seeking help.
               </Concern>
               <p>
                 We do not have the resources or the ability to follow up with
-                users and make sure they are safe. If your experiencing a crisis
+                users and make sure they are safe. If you are experiencing a crisis
                 please contact the proper authorities where available.
               </p>
               <br></br>
-              
-                <a href='https://help.unhcr.org/#_ga=2.77856916.1629316781.1566928972-2139737474.1566928972' rel="noopener noreferrer" target="_blank" >
+
+              <a href='https://help.unhcr.org/#_ga=2.77856916.1629316781.1566928972-2139737474.1566928972' rel="noopener noreferrer" target="_blank" >
                 UN Refugee Agency</a>
-           
-            
+
+
               <a href="https://www.icrc.org/en"><p>International Committee of the Red Cross</p></a>
 
               <Concern>
